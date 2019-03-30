@@ -1,32 +1,55 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <% if logged_in? %>
-    <%= link_to "勤怠システム", "#", id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "トップへ", "#" %></li>
-          <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  アカウント <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                  <li><%= link_to "アカウント情報更新", current_user %></li>
-                  <li class="divider"></li>
-                  <li>
-                      <%= link_to "ログアウト", logout_path, method: :delete %>
-                  </li>
-              </ul>
-          </li>
-      </ul>
-     </nav>
-    <% else %>
-        <%= link_to "勤怠システム", root_path, id: "logo" %>
+      <% if current_user.admin? %>
+        <%= link_to "勤怠システム", "#", id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "トップへ", root_path %></li>
-            <li><%= link_to "ログイン", login_path %></li>
+              <li><%= link_to "トップへ", "#" %></li>
+              <li><%= link_to "ユーザ一覧", users_path %></li>
+              <li><%= link_to "基本情報の修正", "#" %></li>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      アカウント <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><%= link_to "アカウントの情報更新", edit_user_path(current_user) %></li>
+                      <li class="divider"></li>
+                      <li>
+                        <%= link_to "ログアウト", logout_path, method: :delete %>
+                      </li>
+                  </ul>
+              </li>
           </ul>
-         </nav>
+        </nav>
+      <% else %>
+        <%= link_to "勤怠システム", "#", id: "logo" %>
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "トップへ", "#" %></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        アカウント <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><%= link_to "アカウントの情報更新", edit_user_path(current_user) %></li>
+                        <li class="divider"></li>
+                        <li>
+                          <%= link_to "ログアウト", logout_path, method: :delete %>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+           </nav>
+      <% end %>    
+    <% else %>
+       <%= link_to "勤怠システム", root_path, id: "logo" %>
+          <nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "トップへ", root_path %></li>
+              <li><%= link_to "ログイン", login_path %></li>
+            </ul>
+          </nav>
     <% end %>
   </div>
 </header>
