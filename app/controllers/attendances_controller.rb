@@ -1,6 +1,6 @@
 class AttendancesController < ApplicationController
     def create
-        @user = User.find_by(params[:user_id])
+        @user = User.find(params[:user_id])
         @attendance = @user.attendances.find_by(worked_on: Date.today)
         if @attendance.started_at.nil?
           @attendance.update_attributes(started_at: current_time)

@@ -2,10 +2,10 @@
   <div class="container">
     <% if logged_in? %>
       <% if current_user.admin? %>
-        <%= link_to "勤怠システム", "#", id: "logo" %>
+        <%= link_to "勤怠システム", user_path(current_user), id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "トップへ", "#" %></li>
+              <li><%= link_to "トップへ", user_path(current_user) %></li>
               <li><%= link_to "ユーザ一覧", users_path %></li>
               <li><%= link_to "基本情報の修正", basic_info_path %></li>
               <li class="dropdown">
@@ -23,10 +23,10 @@
           </ul>
         </nav>
       <% else %>
-        <%= link_to "勤怠システム", "#", id: "logo" %>
+        <%= link_to "勤怠システム", user_path(current_user), id: "logo" %>
           <nav>
             <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "トップへ", "#" %></li>
+                <li><%= link_to "トップへ", user_path(current_user) %></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         アカウント <b class="caret"></b>
