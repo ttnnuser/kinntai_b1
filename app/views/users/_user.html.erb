@@ -1,5 +1,6 @@
 <li>
   <%= link_to user.name, user %>
+   | <%= link_to "基本情報編集", basic_info_path %>
   <% if current_user.admin? && !current_user?(user) %>
   | <%= link_to "削除", user, method: :delete, date: { confirm: "削除してもよろしいですか？" } %>
   <% end %>

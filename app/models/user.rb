@@ -9,5 +9,12 @@ class User < ApplicationRecord
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
     validates :department, length: { in: 3..50 }, allow_blank: true
     has_many :attendances, dependent: :destroy
-    
+
+  def self.search(search)
+      if search
+        where(['name LIKE ?', "%#{search}%"])
+      else
+          all
+      end
+  end
 end

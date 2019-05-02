@@ -5,6 +5,7 @@ User.create!(name:  "管理者",
              admin: true)
 
 59.times do |n|
+  I18n.locale = :ja
   name  = Faker::Name.name
   email = "email#{n+1}@sample.com"
   password = "password"

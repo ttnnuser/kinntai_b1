@@ -1,0 +1,17 @@
+ja:
+ activerecord:
+   attributes:
+       attendance:
+         worked_on: 在社時間
+         started_at: 出社時間
+         finished_at: 退社時間
+         note:
+       user:
+         name: 名前
+         email: メールアドレス
+         password: パスワード
+         password_confirmation: パスワード確認
+         department: 所属
+         basic_time: 基本時間
+         work_time: 指定勤務時間
+       
