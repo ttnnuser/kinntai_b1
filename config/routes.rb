@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#delete'
-  get '/edit-basic-info', to: 'users#edit_basic_info', as: :basic_info
+  get '/edit-basic-info/:id', to: 'users#edit_basic_info', as: :basic_info
   patch 'update-basic-info', to: 'users#update_basic_info'
   get 'users/:id/attendances/:date/edit', to: 'attendances#edit', as: :edit_attendances
   patch 'users/:id/attendances/:date/update', to: 'attendances#update', as: :update_attendances
