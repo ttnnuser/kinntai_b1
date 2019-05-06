@@ -21,6 +21,7 @@ class AttendancesController < ApplicationController
     end
     def update
       @user = User.find(params[:id])
+      @attendance = @user.attendances.find_by(worked_on: Date.today)
       if attendances_invalid?
        attendances_params.each do |id, item|
         attendance = Attendance.find(id)
@@ -30,7 +31,7 @@ class AttendancesController < ApplicationController
        redirect_to user_url(@user, params:{first_day: params[:date]})
       else
        flash[:danger] = "不正な時間入力がありました、再入力してください。"
-       redirect_to edit_attendances_path(@user, params[:date])
+       redirect_to edit_attendances_path(@user, params[:date]) and return
       end
     end
       private
