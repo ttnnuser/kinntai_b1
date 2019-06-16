@@ -160,9 +160,13 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    roo (2.8.2)
+      nokogiri (~> 1)
+      rubyzip (>= 1.2.1, < 2.0.0)
     rounding (1.0.1)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
+    rubyzip (1.2.3)
     sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -230,6 +234,7 @@ DEPENDENCIES
   rails (= 5.1.6)
   rails-controller-testing (= 1.0.2)
   rails-i18n
+  roo
   rounding
   sass-rails (= 5.0.6)
   spring (= 2.0.2)

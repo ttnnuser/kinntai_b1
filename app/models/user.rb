@@ -17,4 +17,12 @@ class User < ApplicationRecord
           all
       end
   end
+  def self.import(file)
+      user = find_by(id: row["id"]) || new
+      user.attributes = row.to_hash.slice(*updatable_attributes)
+      user.save
+  end
+  def self.updatable_attributes
+      ["id", "name", "email",]
+  end
 end

@@ -17,6 +17,12 @@ class UsersController < ApplicationController
     end
     @dates = user_attendances_month_date
     @worked_sum = @dates.where.not(started_at: nil).count
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data render_to_string, filename: "products.csv", type: :csv
+      end
+    end
   end
   def create
     @user = User.new(user_params)
@@ -45,6 +51,10 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page]).search(params[:search])
   end
   
+  def import
+    User.import(params[:file])
+    redirect_to users_url
+  end
   def destroy
     User.find(params[:id]).delete
     flash[:success] = "削除しました。"
