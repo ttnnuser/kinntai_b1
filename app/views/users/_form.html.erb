@@ -8,13 +8,28 @@
   <%= f.email_field :email, class: 'form-control' %>
   
   <%= f.label :所属 %>
-  <%= f.text_field :department, class: 'form-control' %>
-
+  <%= f.text_field :affiliation, class: 'form-control' %>
+  
+  <%= f.label :社員番号 %>
+  <%= f.number_field :employee_number, class: 'form-control' %>
+  
+  <%= f.label :カードID %>
+  <%= f.text_field :uid, class: 'form-control' %>
+  
   <%= f.label :パスワード %>
   <%= f.password_field :password, class: 'form-control' %>
 
   <%= f.label :パスワード確認 %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+  <%= f.label :基本時間 %>
+  <%= f.time_field :basic_work_time, class: 'form-control' %>
+
+  <%= f.label :指定勤務開始時間 %>
+  <%= f.time_field :designated_work_start_time, class: 'form-control' %>
+
+  <%= f.label :指定勤務終了時間 %>
+  <%= f.time_field :designated_work_end_time, class: 'form-control' %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

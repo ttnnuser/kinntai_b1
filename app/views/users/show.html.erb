@@ -9,9 +9,10 @@
                 <%= link_to "→", user_path(params: {id: @user.id, first_day: @first_day.next_month}),
                                  class: "btn btn-xs btn-primary" %>
             </td>
-            <td>指定勤務時間 <%= format_basic_time(@user.work_time) %><br>指定勤務終了時間
+            <td>指定勤務開始時間 <!--<%= format_basic_time(@user.work_time) %>--><br>
+                指定勤務終了時間
             </td>
-            <td colspan = "3">基本時間 <%= format_basic_time(@user.basic_time) %></td>
+            <td colspan = "3">基本時間 <!--<%= format_basic_time(@user.basic_time) %>--></td>
             <td>初日 <%= @first_day.to_s(:date) %></td>
         </tr>
         <tr>
